@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 99;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 200px;
+            background: #f4f4f4;
+            padding: 15px;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            background: #c9c2c2;
+            margin: 5px 0;
+            cursor: pointer;
+            text-align: center;
+        }
+        .sidebar ul li:hover {
+            background: #bbb;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            align-items:self-start;
+            justify-content:self-start;
+            padding: 20px;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 50px;
+            cursor: pointer;
+            background: #3e7cce;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #216788;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Aici va fi meniul</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li onclick="showRepair('TomTom Repair')">TomTom Repair</li>
+                <li onclick="showRepair('Garmin Repair')">Garmin Repair</li>
+                <li onclick="showRepair('Apple Repair')">Apple Repair</li>
+                <li onclick="showRepair('Audi Repair')">Audi Repair</li>
+                <li onclick="showRepair('Autel Repair')">Autel Repair</li>
+                <li onclick="showRepair('Samsung Repair')">Samsung Repair</li>
+                <li onclick="showRepair('Snooper Repair')">Snooper Repair</li>
+                <li onclick="showRepair('Dacia Repair')">Dacia Repair</li>
+                <li onclick="showRepair('BMW Repair')">BMW Repair</li>
+                <li onclick="showRepair('Citroen Repair')">Citroen Repair</li>
+                <li onclick="showRepair('Ducati Repair')">Ducati Repair</li>
+                <li onclick="showRepair('Skoda Repair')">Skoda Repair</li>
+                <li onclick="showRepair('Vauxhall Repair')">Vauxhall Repair</li>
+                <li onclick="showRepair('Volkswagen Repair')">Volkswagen Repair</li>
+                <li onclick="showRepair('Jeep Repair')">Jeep Repair</li>
+                <li onclick="showRepair('Infiniti Repair')">Infiniti Repair</li>
+                <li onclick="showRepair('Fiat Repair')">Fiat Repair</li>
+                <li onclick="showRepair('Kawasaki Repair')">Kawasaki Repair</li>
+                <li onclick="showRepair('Peugeot Repair')">Peugeot Repair</li>
+                <li onclick="showRepair('Renault Repair')">Renault Repair</li>
+                <li onclick="showRepair('Seat Repair')">Seat Repair</li>
+                <li onclick="showRepair('Smart Car Repair')">Smart Car Repair</li>
+                <li onclick="showRepair('Lexus Repair')">Lexus Repair</li>
+                <li onclick="showRepair('Land Rover Repair')">Land Rover Repair</li>
+                <li onclick="showRepair('Nissan Repair')">Nissan Repair</li>
+                <li onclick="showRepair('Mitsubishi Repair')">Mitsubishi Repair</li>
+                <li onclick="showRepair('Maserati Repair')">Maserati Repair</li>
+                <li onclick="showRepair('Mini Cooper Repair')">Mini Cooper Repair</li>
+                <li onclick="showRepair('Mercedes Repair')">Mercedes Repair</li>
+                <li onclick="showRepair('Suzuki Repair')">Suzuki Repair</li>
+                <li onclick="showRepair('Honda Repair')">Honda Repair</li>
+                <li onclick="showRepair('Toyota Repair')">Toyota Repair</li>
+                <li onclick="showRepair('Ford Repair')">Ford Repair</li>
+                <li onclick="showRepair('Alfa Romeo Repair')">Alfa Romeo Repair</li>
+                <li onclick="showRepair('Kia Repair')">Kia Repair</li>
+                <li onclick="showRepair('Range Rover Repair')">Range Rover Repair</li>
+                <li onclick="showRepair('Hyundai Repair')">Hyundai Repair</li>
+                <li onclick="showRepair('Navigon Repair')">Navigon Repair</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <button onclick="window.location.href='formular.html'">Obține un Quote</button>
+        </main>
+    </div>
+
+    <script>
+        function showRepair(repair) {
+            alert("Ai selectat: " + repair);
+        }
+    </script>
+
+</body>
+</html>
