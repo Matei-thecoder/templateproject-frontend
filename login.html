@@ -154,7 +154,7 @@
         <div class="container-log">
             <div class="form-container-log">
                 <h2>Login</h2>
-                <form action="#" method="POST">
+                <form id="login-form">
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="email" name="email" placeholder="Email" required>
@@ -176,12 +176,78 @@
                 </div>
             </div>
         </div>
+        <div id="error-message" style="color: red; display: none; margin-top: 10px;">
+            <!-- Error messages will be dynamically inserted here -->
+        </div>
+    
+        <!-- Success Message Display -->
+        <div id="success-message" style="color: green; display: none; margin-top: 10px;">
+            <!-- Success message with user's name will be inserted here -->
+        </div>
     </div>
 
     <script>
         function showRepair(repair) {
             alert("Ai selectat: " + repair);
         }
+
+        const form = document.getElementById('login-form');
+    const errorMessageDiv = document.getElementById('error-message');
+    const successMessageDiv = document.getElementById('success-message');
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();  // Prevent the form from submitting normally
+
+        const formData = new FormData(form);
+
+        const data = {
+            email: formData.get('email'),
+            password: formData.get('password')
+        };
+
+        try {
+            // Send login request
+            const response = await fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Login successful:', responseData);
+
+                // Show success message with user name
+                const userName = responseData.name;  // Get username from cookies
+                if (userName) {
+                    successMessageDiv.textContent = `Hello ${userName}! You are now logged in.`;
+                    successMessageDiv.style.display = 'block';
+                }
+
+                // Optionally redirect to a protected page after successful login
+                //window.location.href = '/dashboard';  // Modify this as needed
+            } else {
+                const errorData = await response.json();
+                console.error('Login error:', errorData);
+                errorMessageDiv.textContent = errorData.error || 'A apărut o eroare. Te rugăm să încerci din nou.';
+                errorMessageDiv.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Request failed', error);
+            errorMessageDiv.textContent = 'Eroare de rețea. Te rugăm să încerci mai târziu.';
+            errorMessageDiv.style.display = 'block';
+        }
+    });
+
+    // Utility function to get cookies by name
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
     </script>
 
 </body>

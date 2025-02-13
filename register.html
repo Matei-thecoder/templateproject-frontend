@@ -154,10 +154,25 @@
         <div class="container-reg">
             <div class="form-container-reg">
                 <h2>Înregistrează-te</h2>
-                <form action="#" method="POST">
+                <!--<form action="http://localhost:3000/auth/signup" method="post">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <input type="text" id="name" name="name" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Parolă" required>
+                    </div>
+                    <button type="submit" class="btn-reg">Înregistrează-te</button>
+                </form>-->
+                <form id="signup-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" name="name" placeholder="Username" required>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
@@ -180,12 +195,70 @@
                 </div>
             </div>
         </div>
+        <div id="error-message" style="color: red; display: none; margin-top: 10px;">
+            <!-- Error messages will be dynamically inserted here -->
+        </div>
     </div>
 
     <script>
         function showRepair(repair) {
             alert("Ai selectat: " + repair);
         }
+        const form = document.getElementById('signup-form');
+        const errorMessageDiv = document.getElementById('error-message');
+
+
+    // Add event listener to handle form submission
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Prepare data to send
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            password: formData.get('password')
+        };
+
+        try {
+            // Send POST request using fetch
+            const response = await fetch('http://localhost:3000/auth/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            // Handle response
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Success:', responseData);
+                window.location.href='./login.html'
+                // You can redirect the user or show a success message here
+            } else {
+                const errorData = await response.json();
+                console.error('Error:', errorData);
+                 // Handle specific "email already used" error
+                 if (errorData.error && errorData.error === "Email is already in use") {
+                    errorMessageDiv.textContent = 'Email-ul este deja folosit. Te rugăm să folosești un alt email.';
+                } else {
+                    // Display a generic error message
+                    errorMessageDiv.textContent = errorData.error || 'A apărut o eroare. Te rugăm să încerci din nou.';
+                }
+                
+                // Show the error message div
+                errorMessageDiv.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Request failed', error);
+            // Handle network or other errors
+            errorMessageDiv.textContent = 'Eroare de rețea. Te rugăm să încerci mai târziu.';
+            errorMessageDiv.style.display = 'block'; // Show error message
+        }
+    });
     </script>
 </body>
 </html>
