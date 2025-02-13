@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="style-index.css" media="all" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
 
 </head>
 <body>
@@ -149,10 +151,31 @@
                 <li onclick="showRepair('Navigon Repair')">Navigon Repair</li>
             </ul>
         </aside>
-
-        <main class="content">
-            <button class="free-quote" onclick="window.location.href='formular.html'">Free Quote</button>
-        </main>
+        <div class="container-log">
+            <div class="form-container-log">
+                <h2>Login</h2>
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Parolă" required>
+                    </div>
+                    <button type="submit" class="btn-log">Login</button>
+                </form>
+                <a href="#" class="forgot-password">Ai uitat parola?</a>
+                <div class="social-login">
+                    <p>Sau loghează-te cu:</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>

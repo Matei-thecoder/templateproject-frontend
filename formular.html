@@ -4,136 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formular Quotes</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            margin: 20px;
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            flex: 1;
-        }
-        .sidebar {
-            width: 200px;
-            background: #f4f4f4;
-            padding: 15px;
-        }
-        .sidebar ul {
-            list-style: none;
-        }
-        .sidebar ul li {
-            padding: 10px;
-            background: #ddd;
-            margin: 5px 0;
-            cursor: pointer;
-            text-align: center;
-        }
-        .sidebar ul li:hover {
-            background: #bbb;
-        }
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .form-container {
-            width: 100%;
-            max-width: 600px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .form-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, select, textarea {
-            margin-bottom: 15px;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-        }
-        button {
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .quote-selector {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .quote-selector select {
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-        .message {
-        margin-top: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        font-weight: bold;
-        display: none;
-        text-align: center;
-    }
-
-    .success-message {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-    }
-
-    .error-message {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style-index.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="style-formular.css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
+    <div class="auth-buttons">
+        <a href="register.html" class="auth-button">
+            <i class="fa fa-user-plus"></i> Register
+        </a>
+        <a href="login.html" class="auth-button">
+            <i class="fa fa-sign-in"></i> Login
+        </a>
+    </div>
 
-    <header>
-        <h1>Aici va fi meniul</h1>
-    </header>
+    <div class="container hidden-print">
+        <div class="row">
+            <!-- Contactele vizibile inițial -->
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 0208 7404 089</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> 00447859421981</small></h4>
+                <h4><small><img class="flag" src="uk.jpg" alt="UK"> 10 Clifton Avenue, PE3 6AY Peterborough, UK</small></h4>
+            </div>
+    
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 0040268473195</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> 0040734802215</small></h4>
+                <h4><small><img class="flag" src="rom.jpg" alt="Romania"> Strada Republicii 2, Brașov, România</small></h4>
+            </div>
+    
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 0720469369</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> 0720469369</small></h4>
+                <h4><small><img class="flag" src="sw.jpg" alt="Sweden"> Centralvägen 3, 141 46 Huddinge, Sweden</small></h4>
+            </div>
+    
+            <!-- Butonul de afișare -->
+            <div class="col-sm-2 col-xs-12 text-center">
+                <button id="show-more" class="btn btn-primary">Show More <i class="fa fa-arrow-down"></i></button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    
+        <!-- Contactele ascunse inițial -->
+        <div class="row hidden-contacts">
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> +971553253003</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> +971553253003</small></h4>
+                <h4><small><img class="flag" src="uae.jpg" alt="UAE"> Shop No:5 Al Raffa St, Dubai-UAE</small></h4>
+            </div>
+    
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 07859421981</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> +447859421981</small></h4>
+                <h4><small><img class="flag" src="uk.jpg" alt="UK"> 301 Highfield Road, Birmingham, UK <em>(Services at this location are available by appointment only)</em></small></h4>
+            </div>
+    
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 07859421981</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> +447859421981</small></h4>
+                <h4><small><img class="flag" src="uk.jpg" alt="UK"> 177a North End Road, London, UK <em>(Services at this location are available by appointment only)</em></small></h4>
+            </div>
+
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 07859421981</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> +447859421981</small></h4>
+                <h4><small><img class="flag" src="uk.jpg" alt="UK"> Unit 1 Kinches Farm, Road Hill Catherington, Waterlooville Hants PO8 0TG <em>(Services at this location are available by appointment only)</em></small></h4>
+            </div>
+            
+            <div class="col-sm-3 col-xs-4 text-center">
+                <i class="fa fa-comments fa-3x text-primary"></i>
+                <h4><small><i class="fa fa-phone text-primary"></i> 07859421981</small></h4>
+                <h4><small><i class="fa-brands fa-whatsapp text-success"></i> +447859421981</small></h4>
+                <h4><small><img class="flag" src="uk.jpg" alt="UK"> Unit 2 Old Mill Lane, Macclesfield, Cheshire SK11 7PA <em>(Services at this location are available by appointment only)</em></small></h4>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-menu">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><i class="fa fa-bars"></i></label>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="promotions.html">Promotions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="repair-partners.html">Repair Partners</a></li>
+            <li><a href="find-us.html">Find Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
     <div class="container">
         <aside class="sidebar">
@@ -198,12 +169,14 @@
             </form>
         </main>
     </div>
+
     <div id="success-message" class="success-message" style="display: none;">
         ✅ Form submitted successfully! Thank you.
     </div>
     <div id="error-message" class="message error-message" style="display: none;">
         ❌ An error occurred while submitting the form. Please try again.
     </div>
+
     <script>
         function updateForms() {
             const nrQuotes = document.getElementById("nr-quotes").value;
@@ -213,7 +186,7 @@
             for (let i = 1; i <= nrQuotes; i++) {
                 const form = `
                     <div class="form-container">
-                        <h1>Formular de Estimare ${i}</h1>
+                        <h1>Quote form ${i}</h1>
                         
                         <label for="producator-${i}">Manufacturer</label>
                         <select id="producator-${i}" name="Manufacturer">
@@ -393,337 +366,5 @@
 
         document.addEventListener("DOMContentLoaded", updateForms);
     </script>
-
 </body>
 </html>
-
-
-
-<!--<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formular Quotes</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            margin: 20px;
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            flex: 1;
-        }
-        .sidebar {
-            width: 200px;
-            background: #f4f4f4;
-            padding: 15px;
-        }
-        .sidebar ul {
-            list-style: none;
-        }
-        .sidebar ul li {
-            padding: 10px;
-            background: #ddd;
-            margin: 5px 0;
-            cursor: pointer;
-            text-align: center;
-        }
-        .sidebar ul li:hover {
-            background: #bbb;
-        }
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items:center;
-            justify-content: start;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .form-container {
-            width: 100%;
-            max-width: 600px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .form-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, select, textarea {
-            margin-bottom: 15px;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .form-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-        }
-        .quote-selector {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .quote-selector select {
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Aici va fi meniul</h1>
-    </header>
-
-    <div class="container">
-        <aside class="sidebar">
-            <ul>
-                <li onclick="showRepair('TomTom Repair')">TomTom Repair</li>
-                <li onclick="showRepair('Garmin Repair')">Garmin Repair</li>
-                <li onclick="showRepair('Apple Repair')">Apple Repair</li>
-                <li onclick="showRepair('Audi Repair')">Audi Repair</li>
-                <li onclick="showRepair('Autel Repair')">Autel Repair</li>
-                <li onclick="showRepair('Samsung Repair')">Samsung Repair</li>
-                <li onclick="showRepair('Snooper Repair')">Snooper Repair</li>
-                <li onclick="showRepair('Dacia Repair')">Dacia Repair</li>
-                <li onclick="showRepair('BMW Repair')">BMW Repair</li>
-                <li onclick="showRepair('Citroen Repair')">Citroen Repair</li>
-                <li onclick="showRepair('Ducati Repair')">Ducati Repair</li>
-                <li onclick="showRepair('Skoda Repair')">Skoda Repair</li>
-                <li onclick="showRepair('Vauxhall Repair')">Vauxhall Repair</li>
-                <li onclick="showRepair('Volkswagen Repair')">Volkswagen Repair</li>
-                <li onclick="showRepair('Jeep Repair')">Jeep Repair</li>
-                <li onclick="showRepair('Infiniti Repair')">Infiniti Repair</li>
-                <li onclick="showRepair('Fiat Repair')">Fiat Repair</li>
-                <li onclick="showRepair('Kawasaki Repair')">Kawasaki Repair</li>
-                <li onclick="showRepair('Peugeot Repair')">Peugeot Repair</li>
-                <li onclick="showRepair('Renault Repair')">Renault Repair</li>
-                <li onclick="showRepair('Seat Repair')">Seat Repair</li>
-                <li onclick="showRepair('Smart Car Repair')">Smart Car Repair</li>
-                <li onclick="showRepair('Lexus Repair')">Lexus Repair</li>
-                <li onclick="showRepair('Land Rover Repair')">Land Rover Repair</li>
-                <li onclick="showRepair('Nissan Repair')">Nissan Repair</li>
-                <li onclick="showRepair('Mitsubishi Repair')">Mitsubishi Repair</li>
-                <li onclick="showRepair('Maserati Repair')">Maserati Repair</li>
-                <li onclick="showRepair('Mini Cooper Repair')">Mini Cooper Repair</li>
-                <li onclick="showRepair('Mercedes Repair')">Mercedes Repair</li>
-                <li onclick="showRepair('Suzuki Repair')">Suzuki Repair</li>
-                <li onclick="showRepair('Honda Repair')">Honda Repair</li>
-                <li onclick="showRepair('Toyota Repair')">Toyota Repair</li>
-                <li onclick="showRepair('Ford Repair')">Ford Repair</li>
-                <li onclick="showRepair('Alfa Romeo Repair')">Alfa Romeo Repair</li>
-                <li onclick="showRepair('Kia Repair')">Kia Repair</li>
-                <li onclick="showRepair('Range Rover Repair')">Range Rover Repair</li>
-                <li onclick="showRepair('Hyundai Repair')">Hyundai Repair</li>
-                <li onclick="showRepair('Navigon Repair')">Navigon Repair</li>
-            </ul>
-        </aside>
-
-        <main class="content">
-            <div class="quote-selector">
-                <label for="nr-quotes"><strong>No of repairs:</strong></label>
-                <select id="nr-quotes" name="NrOfRepairs" onchange="updateForms()">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div id="form-wrapper" class="form-wrapper"></div>
-        </main>
-    </div>
-
-    <script>
-        function updateForms() {
-            const nrQuotes = document.getElementById("nr-quotes").value;
-            const formWrapper = document.getElementById("form-wrapper");
-            formWrapper.innerHTML = "";
-            for (let i = 1; i <= nrQuotes; i++) {
-                const form = `
-                    <div class="form-container">
-                        <h1>Formular de Estimare ${i}</h1>
-                        <form action="http://localhost:3000/quotes/add" method="POST">
-                            <label for="producator-${i}">Manufacturer</label>
-                            <select id="producator-${i}" name="Manufacturer">
-                                <option value="">Select manufacturer</option>
-                                <option value="TomTom">TomTom</option>
-                                <option value="Garmin">Garmin</option>
-                                <option value="Apple">Apple</option>
-                                <option value="Audi">Audi</option>
-                                <option value="Autel">Autel</option>
-                                <option value="Samsung">Samsung</option>
-                                <option value="Snooper">Snooper</option>
-                                <option value="Dacia">Dacia</option>
-                                <option value="BMW">BMW</option>
-                                <option value="Citroen">Citroen</option>
-                                <option value="Ducati">Ducati</option>
-                                <option value="Skoda">Skoda</option>
-                                <option value="Vauxhall">Vauxhall</option>
-                                <option value="Volkswagen">Volkswagen</option>
-                                <option value="Jeep">Jeep</option>
-                                <option value="Infiniti">Infiniti</option>
-                                <option value="Fiat">Fiat</option>
-                                <option value="Kawasaki">Kawasaki</option>
-                                <option value="Peugeot">Peugeot</option>
-                                <option value="Renault">Renault</option>
-                                <option value="Seat">Seat</option>
-                                <option value="Smart Car">Smart Car</option>
-                                <option value="Lexus">Lexus</option>
-                                <option value="Land Rover">Land Rover</option>
-                                <option value="Nissan">Nissan</option>
-                                <option value="Mitsubishi">Mitsubishi</option>
-                                <option value="Maserati">Maserati</option>
-                                <option value="Mini Cooper">Mini Cooper</option>
-                                <option value="Mercedes">Mercedes</option>
-                                <option value="Suzuki">Suzuki</option>
-                                <option value="Honda">Honda</option>
-                                <option value="Toyota">Toyota</option>
-                                <option value="Ford">Ford</option>
-                                <option value="Alfa Romeo">Alfa Romeo</option>
-                                <option value="Kia">Kia</option>
-                                <option value="Range Rover">Range Rover</option>
-                                <option value="Hyundai">Hyundai</option>
-                                <option value="Navigon">Navigon</option>
-                            </select>
-
-
-                            <label for="model-${i}">Model</label>
-                            <input type="text" id="model-${i}" name="Model" placeholder="Enter model">
-
-                            <label for="defect-${i}">Fault</label>
-                            <textarea id="defect-${i}" name="Fault" rows="4" placeholder="Describe the fault"></textarea>
-
-                            <label for="moredefect-${i}">More Faults</label>
-                            <textarea id="defect-${i}" name="MoreFault" rows="4" placeholder="Describe the fault"></textarea>
-
-                            <label for="nume-${i}">Name</label>
-                            <input type="text" id="nume-${i}" name="Name" placeholder="Enter your name.">
-
-                            <label for="email-${i}">E-mail</label>
-                            <input type="email" id="email-${i}" name="Email" placeholder="Enter your e-mail">
-
-                            <label for="telefon-${i}">Phone</label>
-                            <input type="tel" id="telefon-${i}" name="Phone" placeholder="Enter your phone number">
-
-                            <label for="tara-${i}">Country</label>
-                            <select id="tara-${i}" name="Country">
-                                <option value="">Select country</option>
-                                <option value="United States of America">United States of America</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="Italy">Italy</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Germany">Germany</option>
-                                <option value="Spain">Spain</option>
-                                <option value="Switzerland">Switzerland</option>
-                                <option value="Poland">Poland</option>
-                                <option value="Portugal">Portugal</option>
-                                <option value="Hungary">Hungary</option>
-                                <option value="Austria">Austria</option>
-                                <option value="Romania">Romania</option>
-                                <option value="Australia">Australia</option>
-                                <option value="France">France</option>
-                                <option value="Ireland">Ireland</option>
-                                <option value="Belgium">Belgium</option>
-                                <option value="Denmark">Denmark</option>
-                                <option value="Norway">Norway</option>
-                                <option value="Finland">Finland</option>
-                                <option value="Bulgaria">Bulgaria</option>
-                                <option value="Cyprus">Cyprus</option>
-                                <option value="Czech Republic">Czech Republic</option>
-                                <option value="Estonia">Estonia</option>
-                                <option value="Greece">Greece</option>
-                                <option value="Latvia">Latvia</option>
-                                <option value="Lithuania">Lithuania</option>
-                                <option value="Luxembourg">Luxembourg</option>
-                                <option value="Malta">Malta</option>
-                                <option value="Netherlands">Netherlands</option>
-                                <option value="Slovakia">Slovakia</option>
-                                <option value="Slovenia">Slovenia</option>
-                                <option value="Sweden">Sweden</option>
-                                <option value="Iceland">Iceland</option>
-                                <option value="United Arab Emirates">United Arab Emirates</option>
-                            </select>
-
-                            <label for="centru-${i}">Repair center location</label>
-                            <select id="centru-${i}" name="RepairCenter">
-                                <option value="">Please select</option>
-                                <option value="">Brasov - Romania</option>
-                                <option value="">Peterborough - United Kingdom</option>
-                                <option value="">Huddinge - Sweden</option>
-                                <option value="">Dubai - United Arab Emirates</option>
-                                <option value="">Birmingham - United Kingdom</option>
-                                <option value="">London - United Kingdom</option>
-                                <option value="">Waterlooville - United Kingdom</option>
-                                <option value="">Macclesfield  - United Kingdom</option>
-                            </select>
-
-                            <button type="submit">Trimite</button>
-                        </form>
-                    </div>
-                `;
-                formWrapper.innerHTML += form;
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", updateForms);
-
-        function showCar(car) {
-            alert("Ai selectat: " + car);
-        }
-    </script>
-
-</body>
-</html>
--->

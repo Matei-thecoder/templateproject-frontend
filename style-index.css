@@ -1,0 +1,264 @@
+* {
+    margin: 99;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    margin: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.col-sm-3, .col-xs-4, .col-sm-2, .col-xs-12 {
+    flex: 1 1 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 576px) {
+    .col-sm-3, .col-sm-2 {
+        flex: 1 1 30%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-sm-3, .col-sm-2 {
+        flex: 1 1 22%;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flag {
+    width: 20px;
+    border: none;
+    vertical-align: middle;
+}
+
+.hidden-contacts {
+    display: none;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn i {
+    margin-left: 5px;
+}
+
+.fa-comments {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.fa-phone {
+    color: #007bff;
+}
+
+.fa-brands.fa-whatsapp {
+    color: #25d366;
+}
+
+h4 small {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.hidden-print {
+    display: block;
+}
+
+@media print {
+    .hidden-print {
+        display: none;
+    }
+}
+
+.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Meniu */
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #0056b3;
+    border-radius: 4px;
+}
+
+/* Meniu mobil */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+/* Responsivitate */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #007bff;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    #menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.sidebar {
+    width: 200px;
+    background: #f4f4f4;
+    padding: 15px;
+}
+.sidebar ul {
+    list-style: none;
+}
+.sidebar ul li {
+    padding: 10px;
+    background: #c9c2c2;
+    margin: 5px 0;
+    cursor: pointer;
+    text-align: center;
+}
+.sidebar ul li:hover {
+    background: #bbb;
+}
+.content {
+    flex: 1;
+    display: flex;
+    align-items:self-start;
+    justify-content:self-start;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.free-quote {
+    padding: 75px 48px;
+    font-size: 50px;
+    cursor: pointer;
+    background: #2f68b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background: #437b96;
+}
+
+/* Stilizarea div-ului cu butoanele de autentificare */
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Stilizarea butoanelor */
+.auth-button {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Stilizarea iconițelor */
+.auth-button i {
+    margin-right: 5px;
+}
